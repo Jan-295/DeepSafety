@@ -37,7 +37,7 @@ feature_extractor_model = inception_v3  # @param ["mobilenet_v2", "inception_v3"
 # https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign/download
 
 # store it to a local folder which you need to define here, for now we only care about the Train data part:
-data_root = "./data/Train/"
+data_root = "./data/Train/archive/Train"
 
 batch_size = 32
 img_height = 224
@@ -118,7 +118,7 @@ tensorboard_callback = tf.keras.callbacks.TensorBoard(
     log_dir=log_dir,
     histogram_freq=1)  # Enable histogram computation for every epoch.
 
-NUM_EPOCHS = 50  # This is probably not enough
+NUM_EPOCHS = 1  # This is probably not enough
 
 history = model.fit(train_ds,
                     validation_data=val_ds,
