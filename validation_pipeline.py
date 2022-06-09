@@ -4,6 +4,7 @@
 
 import numpy as np
 import tensorflow as tf
+import std_metrics
 
 
 # //////////////////////////////////////// Load model
@@ -14,7 +15,7 @@ model = tf.keras.models.load_model(import_path)
 # //////////////////////////////////////// Load data
 # You will need to unzip the respective batch folders.
 # Obviously Batch_0 is not sufficient for testing as you will soon find out.
-data_root = "./safetyBatches/Batch_2/"
+data_root = "./safetyBatches/Batch_Jan/"
 batch_size = 32
 img_height = 224
 img_width = 224
@@ -46,9 +47,10 @@ test_ds = test_ds.map(lambda x, y: (normalization_layer(x), y))  # Where x—ima
 # //////////////////////////////////////// Inference.
 predictions = model.predict(test_ds)
 predictions = np.argmax(predictions, axis=1)
-print('Predictions: ', predictions)
-print('Ground truth: ', test_labels)
+#print('Predictions: ', predictions)
+#print('Ground truth: ', test_labels)
 
+std_metrics.metrics(predictions, test_labels)
 
 # //////////////////////////////////////// Let the validation begin
 # Probably you will want to at least migrate these to another script or class when this grows..
