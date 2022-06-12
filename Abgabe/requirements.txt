@@ -1,0 +1,10 @@
+numpy
+tensorboard==2.6.0
+tensorboard-data-server==0.6.0
+tensorboard-plugin-wit==1.8.1
+tensorflow==2.7.0
+tensorflow-estimator==2.7.0
+tensorflow-hub==0.12.0
+tensorflow-io-gcs-filesystem==0.23.1
+scikit-learn==1.1
+matplotlib==3.5.2
